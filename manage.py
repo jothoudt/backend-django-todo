@@ -5,6 +5,9 @@ import sys
 
 
 def main():
+    # Override default port for `runserver` command
+    from django.core.management.commands.runserver import Command as runserver
+    runserver.default_port = "5000"
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangobackendtodo.settings')
     try:
@@ -20,3 +23,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
